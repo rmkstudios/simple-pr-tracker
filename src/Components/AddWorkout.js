@@ -43,7 +43,7 @@ function AddWorkout() {
 
   return (
     <>
-      <div className="form">
+      <form className="form" onSubmit={handleClick}>
         <Select
           placeholder="workout"
           bg="white"
@@ -79,11 +79,11 @@ function AddWorkout() {
           aria-label="Submit"
           colorScheme="green"
           icon={<IoIosAddCircle />}
-          onClick={handleClick}
           borderBottom="3px solid #368011"
+          type="submit"
         />
         <Sort />
-      </div>
+      </form>
       {addError ? (
         <Alert status="warning" className="alert" onClick={closeError}>
           <AlertIcon />

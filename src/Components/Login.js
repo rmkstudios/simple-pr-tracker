@@ -10,7 +10,8 @@ function Login() {
   const [inputPassword, setInputPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(
         auth,
@@ -26,7 +27,7 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <form className="login" onSubmit={login}>
       {!auth.currentUser ? (
         <>
           <InputGroup>
@@ -59,7 +60,7 @@ function Login() {
               onChange={(e) => setInputPassword(e.target.value)}
             />
           </InputGroup>
-          <Button onClick={login} colorScheme="green">
+          <Button type="submit" colorScheme="green">
             Login
           </Button>
           {loginError ? (
@@ -74,7 +75,7 @@ function Login() {
       ) : (
         ""
       )}
-    </div>
+    </form>
   );
 }
 

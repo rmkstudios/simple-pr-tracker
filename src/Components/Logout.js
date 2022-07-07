@@ -3,10 +3,13 @@ import { signOut } from "firebase/auth";
 
 import { Link } from "@chakra-ui/react";
 
-function Logout({ setUserID }) {
+function Logout({ setUserID, setWorkouts, setSortedBy, setSortedWorkouts }) {
   const logout = async () => {
-    await signOut(auth);
     setUserID("");
+    setSortedBy("All");
+    setWorkouts([]);
+    setSortedWorkouts([]);
+    await signOut(auth);
   };
 
   return (

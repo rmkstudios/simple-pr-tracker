@@ -16,6 +16,7 @@ import Loading from "./Components/Loading";
 import LoggedIn from "./Components/LoggedIn";
 import "animate.css";
 import Footer from "./Components/Footer";
+import WaveBackground from "./Components/WaveBackground";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -67,8 +68,15 @@ function App() {
         setSortedWorkouts,
       }}
     >
+      <WaveBackground />
       <div id="container">
-        <Header loggedIn={loggedIn} setUserID={setUserID} />
+        <Header
+          loggedIn={loggedIn}
+          setUserID={setUserID}
+          setWorkouts={setWorkouts}
+          setSortedBy={setSortedBy}
+          setSortedWorkouts={setSortedWorkouts}
+        />
         <main>
           {loading ? (
             <Loading />
